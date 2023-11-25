@@ -14,6 +14,8 @@ public class CreateMenu : MonoBehaviour
     [SerializeField] GameObject Menu2;
     [SerializeField] GameObject Menu3;
 
+    [SerializeField] StashMenu _Stash_Menu;
+
     GameObject form;
     float size;
     Material color;
@@ -26,6 +28,26 @@ public class CreateMenu : MonoBehaviour
         WeightStash_Forward = l.WeightStash_Forward;
     }
 
+    public void CreateButton_onClick_StashOpen()
+    {
+        CancelButton.SetActive(true);
+
+        _Stash_Menu.Open();
+    }
+
+    public void CreateButton_onClick_StashClose()
+    {
+        CancelButton.SetActive(false);
+
+        _Stash_Menu.Close();
+    }
+
+    public void Button_onClick_Exit()
+    {
+        Application.Quit();    // закрыть приложение
+    }
+
+    // вариант меню с выбором
     public void CreateButton_onClick()
     {
         CancelButton.SetActive(true);
@@ -84,4 +106,5 @@ public class CreateMenu : MonoBehaviour
 
         CancelButton_onClick();
     }
+    // вариант меню с выбором
 }

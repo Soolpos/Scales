@@ -11,6 +11,8 @@ public class Links: MonoBehaviour
 
     public Transform WeightStash_Forward;
     public Transform WeightStash_Back;
+    public Mouse _mouse;
+    public StashMenu _StashMenu;
 
     private void Awake()
     {

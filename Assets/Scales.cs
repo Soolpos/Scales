@@ -15,7 +15,6 @@ public class Scales : MonoBehaviour
     float length;
     float x_center;
 
-    // Start is called before the first frame update
     void Start()
     {
         Links l = Links.GetInstance();
@@ -36,7 +35,6 @@ public class Scales : MonoBehaviour
         length = x_center - x_board;
     }
 
-    // Update is called once per frame
     void Update()
     {
         float rightmass = 0;
@@ -98,4 +96,5 @@ public class Scales : MonoBehaviour
         _Bar.ShowResult(leftmass, rightmass);
         //m_TextMeshPro.text = (int) (leftmass/summary * 100) + " " + (int) (rightmass/summary * 100);
     }
+
 }
