@@ -29,7 +29,7 @@ public class StashMenu : MonoBehaviour
         {
             if(open)
             {
-                if (Mathf.Abs(topBorder.position.y - postomove.y) <= 0.1f)
+                if (Mathf.Abs(topBorder.position.y - postomove.y) <= 0.3f)
                 {
                     moving = false;
                 }
@@ -40,7 +40,7 @@ public class StashMenu : MonoBehaviour
             }
             else
             {
-                if (Mathf.Abs(botBorder.position.y - postomove.y) <= 0.1f)
+                if (Mathf.Abs(botBorder.position.y - postomove.y) <= 0.3f)
                 {
                     moving = false;
                 }
