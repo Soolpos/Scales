@@ -19,7 +19,9 @@ public class DragDrop : MonoBehaviour
     // protected Mouse _mouse;
 
     bool sleep = true;
-    
+    bool drag = false;
+    bool onthefloor = false;
+
     Vector3 leftBot;
     Vector3 rightTop;
 
@@ -34,7 +36,8 @@ public class DragDrop : MonoBehaviour
 
     private void Update()
     {
-        if(!sleep)
+
+        if(!sleep && !drag)
         {
             float x_left = leftBot.x;
             float x_right = rightTop.x;
@@ -71,6 +74,8 @@ public class DragDrop : MonoBehaviour
 
         screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+
+        
     }
 
     void MoveOnOtherStash(Transform newp)
@@ -86,10 +91,13 @@ public class DragDrop : MonoBehaviour
 
     void OnMouseDrag()
     {
-        if(sleep)
+        drag = true;
+
+        if (sleep)
         {
             // create copy on menu stash
-            
+            GameObject copy = Instantiate(this.gameObject, this.transform.position, Quaternion.identity, this.transform.parent);
+
             rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
 
             MoveOnOtherStash(WeightStash_Forward);
@@ -107,19 +115,30 @@ public class DragDrop : MonoBehaviour
 
         Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
         Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
+
+        if (onthefloor)
+        {
+            if (cursorPosition.y < transform.position.y)
+                cursorPosition.y = transform.position.y;// Links.GetInstance()._floor.position.y;
+        }
+
         transform.position = new Vector3(cursorPosition.x, cursorPosition.y, transform.parent.position.z);
 
-        
-        //Stop Moving/Translating
+        //Stop Moving/Translating & stop rotating
         rb.velocity = Vector3.zero;
-        //Stop rotating
         rb.angularVelocity = Vector3.zero;
     }
 
     private void OnMouseUp()
     {
+        drag = false;
+
         // ChangeActive(false);
     }
 
+    public void changeOnthefloor(bool t)
+    {
+        onthefloor = t;
+    }
 }
 

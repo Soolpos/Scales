@@ -776,8 +776,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeightStash_Forward: {fileID: 1279564559}
   WeightStash_Back: {fileID: 1116082812}
-  _mouse: {fileID: 0}
   _StashMenu: {fileID: 1563332262}
+  _floor: {fileID: 2008681948}
 --- !u!1001 &206160474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6759,6 +6759,8 @@ GameObject:
   - component: {fileID: 2008681947}
   - component: {fileID: 2008681946}
   - component: {fileID: 2008681945}
+  - component: {fileID: 2008681949}
+  - component: {fileID: 2008681950}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -6775,7 +6777,7 @@ MeshCollider:
   m_GameObject: {fileID: 2008681944}
   m_Material: {fileID: 13400000, guid: 09c2ba7d134b7f74e8bedf5bc322e05b, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -6845,6 +6847,31 @@ Transform:
   m_Father: {fileID: 743487941}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2008681949
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008681944}
+  m_Material: {fileID: 13400000, guid: 09c2ba7d134b7f74e8bedf5bc322e05b, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 42.14165, z: 10.000001}
+  m_Center: {x: 0, y: -21.070826, z: 0}
+--- !u!114 &2008681950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008681944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b88406bbbfdea458ab02a3add77971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2013776053
 GameObject:
   m_ObjectHideFlags: 0
